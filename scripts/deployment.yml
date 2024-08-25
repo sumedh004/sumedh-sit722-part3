@@ -14,8 +14,8 @@ spec:
     spec:
       containers: 
       - name: book-catalog
-        # image: sumedh004.azurecr.io/book_catalog:v1
-        image: book_catalog:v1
+        image: sumedh004.azurecr.io/book_catalog:v1
+ 
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
@@ -36,15 +36,11 @@ metadata:
 spec:
   selector:
     app: book-catalog
-  # type: LoadBalancer
-  # ports:
-  #   - port: 4001
-  #     targetPort: 5000
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - port: 80
-    targetPort: 5000
-    nodePort: 30001
+    - port: 4001
+      targetPort: 5000
+
 
 
 ---
@@ -66,8 +62,8 @@ spec:
     spec:
       containers: 
       - name: inventory-management
-        # image: sumedh004.azurecr.io/inventory_management:v1
-        image: inventory_management:v1
+        image: sumedh004.azurecr.io/inventory_management:v1
+ 
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5001
@@ -88,12 +84,8 @@ metadata:
 spec:
   selector:
     app: inventory-management
-  # type: LoadBalancer
-  # ports:
-  #   - port: 4002
-  #     targetPort: 5001
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - port: 80
-    targetPort: 5001
-    nodePort: 30002
+    - port: 4002
+      targetPort: 5001
+ 
